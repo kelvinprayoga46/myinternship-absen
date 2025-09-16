@@ -201,7 +201,7 @@ class MyInternshipAutomation:
         
         if response.status_code == 200:
             print("Attendance berhasil disubmit!")
-            print(f"Response URL: {response.url}")
+            print(f"Response URL: {response.status_code}")
             return True
         else:
             print(f"Error submit attendance. Status code: {response.status_code}")
