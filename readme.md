@@ -1,12 +1,12 @@
-# 🤖 MyInternship Attendance Bot
+# 🤖 MyInternship Attendance Automation Script
 
 [![Python](https://img.shields.io/badge/Python-3.7+-blue.svg)](https://www.python.org/downloads/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Status](https://img.shields.io/badge/Status-Active-success.svg)]()
 
-> **Automation bot untuk absensi harian di myinternship.id**
+> **Automation Script untuk absensi harian di myinternship.id**
 
-Bot otomatis yang dapat melakukan absensi harian secara terjadwal di platform MyInternship.id. Dibuat untuk memudahkan mahasiswa dalam mengelola absensi magang mereka.
+Script otomatis yang dapat melakukan absensi harian secara terjadwal di platform MyInternship.id. Dibuat untuk memudahkan mahasiswa dalam mengelola absensi magang mereka.
 
 ## ⚠️ DISCLAIMER
 
@@ -217,7 +217,7 @@ jobs:
           python-version: "3.9"
       - name: Install dependencies
         run: pip install -r requirements.txt
-      - name: Run attendance bot
+      - name: Run attendance Script
         env:
           MYINTERNSHIP_NIM: ${{ secrets.MYINTERNSHIP_NIM }}
           MYINTERNSHIP_PASS: ${{ secrets.MYINTERNSHIP_PASS }}
@@ -231,7 +231,7 @@ jobs:
 
 ### Default Attendance Settings
 
-Bot menggunakan konfigurasi default berikut (dapat dimodifikasi di `main.py`):
+Script menggunakan konfigurasi default berikut (dapat dimodifikasi di `main.py`):
 
 ```python
 default_data = {
@@ -283,7 +283,7 @@ Error: Tidak bisa mengambil CSRF token
 
 **Solusi:**
 
-- 🔄 Jalankan ulang bot (token bisa expired)
+- 🔄 Jalankan ulang Script (token bisa expired)
 - 🌐 Periksa koneksi internet
 - 🔍 Cek apakah struktur website berubah
 
@@ -401,9 +401,9 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv()
-bot = MyInternshipAutomation()
-bot.step1_get_login_page()
-result = bot.step2_login(os.getenv('MYINTERNSHIP_NIM'), os.getenv('MYINTERNSHIP_PASS'))
+Script = MyInternshipAutomation()
+Script.step1_get_login_page()
+result = Script.step2_login(os.getenv('MYINTERNSHIP_NIM'), os.getenv('MYINTERNSHIP_PASS'))
 print(f'Login result: {result}')
 "
 ```
@@ -478,7 +478,7 @@ flake8 main.py
 ```
 MIT License
 
-Copyright (c) 2024 MyInternship Bot
+Copyright (c) 2024 MyInternship Script
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -517,7 +517,7 @@ SOFTWARE.
 **Q: Apakah Script ini aman digunakan?**
 A: Ya, Script menggunakan HTTPS dan menyimpan credential di environment variables. Namun gunakan dengan bijak sesuai aturan kampus.
 
-**Q: Berapa sering bot perlu dijalankan?**
+**Q: Berapa sering Script perlu dijalankan?**
 A: Sekali per hari, biasanya dijadwalkan pagi/siang/malam hari untuk absen hari sebelumnya.
 
 **Q: Bagaimana jika website MyInternship.id berubah?**
