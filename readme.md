@@ -106,7 +106,7 @@ MYINTERNSHIP_SIGNATURE_BASE64=data:image/png;base64,iVBORw0KGgoAAAANS...
 2. **Buka halaman** attendance/absensi
 3. **Perhatikan URL** di address bar:
    ```
-   https://myinternship.id/index.php?page=attendance_internship&id_internship=OTI0OA==
+   https://myinternship.id/index.php?page=attendance_internship&id_internship=XXXXXX
    ```
 4. **Copy nilai** `id_internship=XXXXX` → ini adalah `ID_INTERNSHIP`
 5. **Untuk ID numeric**, Convert/Decode base64 to Plaintext `id_internship`
