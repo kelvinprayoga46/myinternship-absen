@@ -462,23 +462,6 @@ flake8 main.py
 3. Push branch: `git push origin feature/improvement-name`
 4. Buat Pull Request di GitHub
 
-### Version 2.0 (Planned)
-
-- [ ] 🔔 Multi-platform notifications (Telegram, Discord, Email)
-- [ ] 📊 Attendance statistics dashboard
-- [ ] 🔄 Auto-retry dengan exponential backoff
-- [ ] 📱 Web-based GUI interface
-- [ ] 🐳 Docker containerization
-- [ ] 🔐 Enhanced security dengan encryption
-
-### Version 2.1 (Future)
-
-- [ ] ⚡ Multi-account support
-- [ ] 🤖 AI-powered attendance descriptions
-- [ ] 📈 Analytics dan reporting
-- [ ] 🔗 API integration untuk third-party apps
-- [ ] 📱 Mobile app companion
-
 ## 📝 Changelog
 
 ### v1.0.0 (Current)
@@ -531,19 +514,18 @@ SOFTWARE.
 
 ### FAQ
 
-**Q: Apakah bot ini aman digunakan?**
-A: Ya, bot menggunakan HTTPS dan menyimpan credential di environment variables. Namun gunakan dengan bijak sesuai aturan kampus.
+**Q: Apakah Script ini aman digunakan?**
+A: Ya, Script menggunakan HTTPS dan menyimpan credential di environment variables. Namun gunakan dengan bijak sesuai aturan kampus.
 
 **Q: Berapa sering bot perlu dijalankan?**
 A: Sekali per hari, biasanya dijadwalkan pagi/siang/malam hari untuk absen hari sebelumnya.
 
 **Q: Bagaimana jika website MyInternship.id berubah?**
-A: Bot mungkin perlu update. Silakan buat issue di GitHub atau submit pull request.
+A: Code mungkin perlu update. Silakan buat issue di GitHub atau submit pull request.
 
 **Q: Bisa untuk multiple account?**
 A: Saat ini hanya support satu account. Multi-account akan ditambahkan di versi mendatang.
 
----
 
 <div align="center">
 
