@@ -1,12 +1,12 @@
-# 🤖 MyInternship Attendance Bot
+# 🤖 MyInternship Attendance Automation Script
 
 [![Python](https://img.shields.io/badge/Python-3.7+-blue.svg)](https://www.python.org/downloads/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Status](https://img.shields.io/badge/Status-Active-success.svg)]()
 
-> **Automation bot untuk absensi harian di myinternship.id**
+> **Automation Script untuk absensi harian di myinternship.id**
 
-Bot otomatis yang dapat melakukan absensi harian secara terjadwal di platform MyInternship.id. Dibuat untuk memudahkan mahasiswa dalam mengelola absensi magang mereka.
+Script otomatis yang dapat melakukan absensi harian secara terjadwal di platform MyInternship.id. Dibuat untuk memudahkan mahasiswa dalam mengelola absensi magang mereka.
 
 ## ⚠️ DISCLAIMER
 
@@ -23,7 +23,7 @@ Bot otomatis yang dapat melakukan absensi harian secara terjadwal di platform My
 - 🛡️ **CSRF Protection** - Handling CSRF token untuk keamanan
 - 🍪 **Session Management** - Pengelolaan session yang proper
 - 📊 **Smart Token Extraction** - Extract JWT token secara otomatis
-- ✅ **Attendance Submission** - Submit absensi dengan validasi tanda tangan
+- ✅ **Attendance Submission** - Submit absensi dengan validasi tKamu tangan
 - 🔄 **Error Handling** - Comprehensive error handling dan retry logic
 - 📝 **Detailed Logging** - Log proses untuk debugging
 - 🔒 **Secure Configuration** - Credential disimpan di environment variables
@@ -41,7 +41,7 @@ Bot otomatis yang dapat melakukan absensi harian secara terjadwal di platform My
 - Python 3.7 atau lebih tinggi
 - Git (untuk clone repository)
 - Akun aktif di myinternship.id
-- Tanda tangan digital (PNG format)
+- TKamu tangan digital (PNG format)
 
 ## 🚀 Installation & Setup
 
@@ -83,19 +83,19 @@ notepad .env  # Windows
 
 ### 4. Konfigurasi .env File
 
-Edit file `.env` dengan data pribadi Anda:
+Edit file `.env` dengan data pribadi Kamu:
 
 ```bash
 # MyInternship.id Credentials
-MYINTERNSHIP_NIM=john@students.polibatam.ac.id                  # Ganti dengan NIM Anda
-MYINTERNSHIP_PASS=adminheker123                  # Ganti dengan password Anda
+MYINTERNSHIP_NIM=john@students.polibatam.ac.id                  # Ganti dengan NIM Kamu
+MYINTERNSHIP_PASS=adminheker123                  # Ganti dengan password Kamu
 
-# MyInternship IDs - SESUAIKAN DENGAN DATA ANDA
-MYINTERNSHIP_ID_INTERNSHIP=OTI0OA==id_encode_base64_here        # ID encoded dari URL
+# MyInternship IDs - SESUAIKAN DENGAN DATA Kamu
+MYINTERNSHIP_ID_INTERNSHIP=id_encode_base64_here        # ID encoded dari URL
 MYINTERNSHIP_ID_INTERNSHIP_NUMERIC=id_decode_base64_here     # ID numeric untuk form
 
 # Digital Signature Base64
-MYINTERNSHIP_SIGNATURE_BASE64=data:image/png;base64,iVBORw0KGgoAAAANS...
+MYINTERNSHIP_SIGNATURE_BASE64=data:image/png;base64,paste_base64_encode_signature_here
 ```
 
 ## 🔍 Cara Mendapatkan Configuration Data
@@ -106,20 +106,21 @@ MYINTERNSHIP_SIGNATURE_BASE64=data:image/png;base64,iVBORw0KGgoAAAANS...
 2. **Buka halaman** attendance/absensi
 3. **Perhatikan URL** di address bar:
    ```
-   https://myinternship.id/index.php?page=attendance_internship&id_internship=OTI0OA==
+   https://myinternship.id/index.php?page=attendance_internship&id_internship=XXXXXX
    ```
 4. **Copy nilai** `id_internship=XXXXX` → ini adalah `ID_INTERNSHIP`
 5. **Untuk ID numeric**, Convert/Decode base64 to Plaintext `id_internship`
 
-### B. Convert Tanda Tangan ke Base64
+### B. Convert TKamu Tangan ke Base64
 
-1. **Download tanda tangan** dari MyInternship.id:
-   - Masuk ke profile/settings
-   - Download signature dalam format PNG
+1. **Download tKamu tangan** dari MyInternship.id:
+   - Masuk ke Halaman Attendance/Absensi
+   - Cek Detail salah satu Attendance
+   - Klik Kanan dan Save as PNG Pada Gambar Validation
+     
 2. **Convert ke Base64**:
-
    - Gunakan online converter: [base64-image.de](https://www.base64-image.de/)
-   - Upload file PNG tanda tangan
+   - Upload file PNG tKamu tangan
    - Copy hasil dalam format: `data:image/png;base64,XXXXX`
 
 3. **Paste ke .env**:
@@ -177,10 +178,10 @@ Absensi berhasil!
 crontab -e
 
 # Tambahkan line ini untuk running setiap hari jam 8 pagi
-0 8 * * * cd /path/to/myinternship-bot && /usr/bin/python3 main.py >> attendance.log 2>&1
+0 8 * * * cd /path/to/myinternship-absen && /usr/bin/python3 main.py >> attendance.log 2>&1
 
 # Atau dengan virtual environment
-0 8 * * * cd /path/to/myinternship-bot && /path/to/venv/bin/python main.py >> attendance.log 2>&1
+0 8 * * * cd /path/to/myinternship-absen && /path/to/venv/bin/python main.py >> attendance.log 2>&1
 ```
 
 ### Menggunakan Task Scheduler (Windows)
@@ -216,7 +217,7 @@ jobs:
           python-version: "3.9"
       - name: Install dependencies
         run: pip install -r requirements.txt
-      - name: Run attendance bot
+      - name: Run attendance Script
         env:
           MYINTERNSHIP_NIM: ${{ secrets.MYINTERNSHIP_NIM }}
           MYINTERNSHIP_PASS: ${{ secrets.MYINTERNSHIP_PASS }}
@@ -230,7 +231,7 @@ jobs:
 
 ### Default Attendance Settings
 
-Bot menggunakan konfigurasi default berikut (dapat dimodifikasi di `main.py`):
+Script menggunakan konfigurasi default berikut (dapat dimodifikasi di `main.py`):
 
 ```python
 default_data = {
@@ -244,7 +245,7 @@ default_data = {
 
 ### Custom Attendance Data
 
-Anda dapat mengustomisasi data absensi:
+Kamu dapat mengustomisasi data absensi:
 
 ```python
 # Di main.py, modifikasi bagian ini:
@@ -282,7 +283,7 @@ Error: Tidak bisa mengambil CSRF token
 
 **Solusi:**
 
-- 🔄 Jalankan ulang bot (token bisa expired)
+- 🔄 Jalankan ulang Script (token bisa expired)
 - 🌐 Periksa koneksi internet
 - 🔍 Cek apakah struktur website berubah
 
@@ -400,9 +401,9 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv()
-bot = MyInternshipAutomation()
-bot.step1_get_login_page()
-result = bot.step2_login(os.getenv('MYINTERNSHIP_NIM'), os.getenv('MYINTERNSHIP_PASS'))
+Script = MyInternshipAutomation()
+Script.step1_get_login_page()
+result = Script.step2_login(os.getenv('MYINTERNSHIP_NIM'), os.getenv('MYINTERNSHIP_PASS'))
 print(f'Login result: {result}')
 "
 ```
@@ -461,23 +462,6 @@ flake8 main.py
 3. Push branch: `git push origin feature/improvement-name`
 4. Buat Pull Request di GitHub
 
-### Version 2.0 (Planned)
-
-- [ ] 🔔 Multi-platform notifications (Telegram, Discord, Email)
-- [ ] 📊 Attendance statistics dashboard
-- [ ] 🔄 Auto-retry dengan exponential backoff
-- [ ] 📱 Web-based GUI interface
-- [ ] 🐳 Docker containerization
-- [ ] 🔐 Enhanced security dengan encryption
-
-### Version 2.1 (Future)
-
-- [ ] ⚡ Multi-account support
-- [ ] 🤖 AI-powered attendance descriptions
-- [ ] 📈 Analytics dan reporting
-- [ ] 🔗 API integration untuk third-party apps
-- [ ] 📱 Mobile app companion
-
 ## 📝 Changelog
 
 ### v1.0.0 (Current)
@@ -494,7 +478,7 @@ flake8 main.py
 ```
 MIT License
 
-Copyright (c) 2024 MyInternship Bot
+Copyright (c) 2024 MyInternship Script
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -530,19 +514,18 @@ SOFTWARE.
 
 ### FAQ
 
-**Q: Apakah bot ini aman digunakan?**
-A: Ya, bot menggunakan HTTPS dan menyimpan credential di environment variables. Namun gunakan dengan bijak sesuai aturan kampus.
+**Q: Apakah Script ini aman digunakan?**
+A: Ya, Script menggunakan HTTPS dan menyimpan credential di environment variables. Namun gunakan dengan bijak sesuai aturan kampus.
 
-**Q: Berapa sering bot perlu dijalankan?**
+**Q: Berapa sering Script perlu dijalankan?**
 A: Sekali per hari, biasanya dijadwalkan pagi/siang/malam hari untuk absen hari sebelumnya.
 
 **Q: Bagaimana jika website MyInternship.id berubah?**
-A: Bot mungkin perlu update. Silakan buat issue di GitHub atau submit pull request.
+A: Code mungkin perlu update. Silakan buat issue di GitHub atau submit pull request.
 
 **Q: Bisa untuk multiple account?**
 A: Saat ini hanya support satu account. Multi-account akan ditambahkan di versi mendatang.
 
----
 
 <div align="center">
 
