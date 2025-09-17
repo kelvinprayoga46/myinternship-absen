@@ -23,7 +23,7 @@ Script otomatis yang dapat melakukan absensi harian secara terjadwal di platform
 - 🛡️ **CSRF Protection** - Handling CSRF token untuk keamanan
 - 🍪 **Session Management** - Pengelolaan session yang proper
 - 📊 **Smart Token Extraction** - Extract JWT token secara otomatis
-- ✅ **Attendance Submission** - Submit absensi dengan validasi tKamu tangan
+- ✅ **Attendance Submission** - Submit absensi dengan validasi tanda tangan Kamu tangan
 - 🔄 **Error Handling** - Comprehensive error handling dan retry logic
 - 📝 **Detailed Logging** - Log proses untuk debugging
 - 🔒 **Secure Configuration** - Credential disimpan di environment variables
@@ -41,7 +41,7 @@ Script otomatis yang dapat melakukan absensi harian secara terjadwal di platform
 - Python 3.7 atau lebih tinggi
 - Git (untuk clone repository)
 - Akun aktif di myinternship.id
-- TKamu tangan digital (PNG format)
+- Tanda tangan digital (PNG format)
 
 ## 🚀 Installation & Setup
 
@@ -111,16 +111,16 @@ MYINTERNSHIP_SIGNATURE_BASE64=data:image/png;base64,paste_base64_encode_signatur
 4. **Copy nilai** `id_internship=XXXXX` → ini adalah `ID_INTERNSHIP`
 5. **Untuk ID numeric**, Convert/Decode base64 to Plaintext `id_internship`
 
-### B. Convert TKamu Tangan ke Base64
+### B. Convert Tanda Tangan ke Base64
 
-1. **Download tKamu tangan** dari MyInternship.id:
+1. **Download tanda tangan** dari MyInternship.id:
    - Masuk ke Halaman Attendance/Absensi
    - Cek Detail salah satu Attendance
    - Klik Kanan dan Save as PNG Pada Gambar Validation
-     
 2. **Convert ke Base64**:
+
    - Gunakan online converter: [base64-image.de](https://www.base64-image.de/)
-   - Upload file PNG tKamu tangan
+   - Upload file PNG tanda tangan
    - Copy hasil dalam format: `data:image/png;base64,XXXXX`
 
 3. **Paste ke .env**:
@@ -525,7 +525,6 @@ A: Code mungkin perlu update. Silakan buat issue di GitHub atau submit pull requ
 
 **Q: Bisa untuk multiple account?**
 A: Saat ini hanya support satu account. Multi-account akan ditambahkan di versi mendatang.
-
 
 <div align="center">
 

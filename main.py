@@ -30,7 +30,6 @@ class MyInternshipAutomation:
         return None
 
     def step1_get_login_page(self):
-        """Step 1: Mengambil halaman login dan extract CSRF token + cookies"""
         print("Step 1: Mengambil halaman login...")
         
         login_url = f"{self.base_url}/index.php?page=student_login"
@@ -46,7 +45,6 @@ class MyInternshipAutomation:
             return False
     
     def step2_login(self, nim, password):
-        """Step 2: Login dengan NIM dan password"""
         print("Step 2: Melakukan login...")
         
         login_data = {
@@ -77,7 +75,6 @@ class MyInternshipAutomation:
             return False
     
     def step3_get_index_page(self):
-        """Step 3: Mengambil halaman index dan update CSRF token + cookies"""
         print("Step 3: Mengambil halaman index...")
         
         index_url = f"{self.base_url}/index.php"
@@ -92,11 +89,10 @@ class MyInternshipAutomation:
             return False
     
     def step4_get_attendance_page(self, id_internship=None):
-        """Step 4: Mengakses halaman attendance"""
         print("Step 4: Mengakses halaman attendance...")
         
         if id_internship is None:
-            id_internship = os.getenv("MYINTERNSHIP_ID_INTERNSHIP", "OTI0OA==")
+            id_internship = os.getenv("MYINTERNSHIP_ID_INTERNSHIP")
         
         attendance_url = f"{self.base_url}/index.php?page=attendance_internship&id_internship={id_internship}"
         
@@ -128,7 +124,6 @@ class MyInternshipAutomation:
             return None
     
     def step5_get_add_attendance_page(self, jwt_token):
-        """Step 5: Mengakses halaman add attendance"""
         print("Step 5: Mengakses halaman add attendance...")
         
         add_attendance_url = f"{self.base_url}/index.php?page=addhistory_attendance_internship&id_internship={jwt_token}"
@@ -150,7 +145,6 @@ class MyInternshipAutomation:
             return None
     
     def step6_submit_attendance(self, referer_url, attendance_data):
-        """Step 6: Submit attendance data"""
         print("Step 6: Submit data attendance...")
         
         default_data = {
@@ -159,8 +153,8 @@ class MyInternshipAutomation:
             'nim': os.getenv("MYINTERNSHIP_NIM"),
             'attendance_date': (datetime.now() - timedelta(days=1)).strftime('%Y-%m-%d'),
             'attendance_type': 'Present',
-            'check_in': '00:00',
-            'check_out': '08:00',
+            'check_in': os.getenv("CHECK_IN"),
+            'check_out': os.getenv("CHECK_OUT"),
             'description': '<p>ABSEN HARIAN</p>',
             'validation': os.getenv("MYINTERNSHIP_SIGNATURE_BASE64")
         }
