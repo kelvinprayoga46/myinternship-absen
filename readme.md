@@ -504,7 +504,7 @@ SOFTWARE.
 ### Community
 
 - 💬 [Discussions](https://wa.me/082386997269)
-- 📧 [Email](kelvinprayoga46@gmail.com
+- 📧 [Email](kelvinprayoga46@gmail.com)
 
 ### FAQ
 
