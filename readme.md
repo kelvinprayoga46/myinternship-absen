@@ -354,17 +354,11 @@ python main.py >> attendance.log 2>&1
 ```
 myinternship-absen/
 ├── 📄 main.py                 # Main application file
-├── 📄 .env                    # Environment variables (DO NOT COMMIT!)
-├── 📄 .env.example           # Environment template
+├── 📄 .env                    # Environment variables
 ├── 📄 .gitignore             # Git ignore rules
 ├── 📄 requirements.txt       # Python dependencies
 ├── 📄 README.md              # This documentation
-├── 📄 LICENSE                # MIT License (optional)
-├── 📁 logs/                  # Log files (optional)
-│   └── attendance.log
-└── 📁 docs/                  # Additional documentation (optional)
-    ├── setup-guide.md
-    └── troubleshooting.md
+├── 📄 LICENSE                # MIT License
 ```
 
 ## 🛡️ Security Best Practices
